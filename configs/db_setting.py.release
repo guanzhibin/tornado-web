@@ -1,0 +1,15 @@
+#coding:utf-8
+#配置
+
+
+#数据库
+DB_CONNECTIONS = {
+    'default': {
+    		'host':'rds6p6p82wkhfpc6565j.mysql.rds.aliyuncs.com',
+    		'db':'wy_fenxiao',
+    		'user':'wydb8412599',
+    		'password':'3IUeOtzY2xWK93KEBHCDodaCAEiHw8ZK',
+    		'charset':'utf8mb4',
+    		'port':3306
+    		}
+}

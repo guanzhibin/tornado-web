@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		{% block title %}
+		{% end %}
+		<!-- Bootstrap core CSS -->
+		<link href="{{ static_url('bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+		<link href="{{ static_url('bootstrap/css/bootstrap-table.css')}}" rel="stylesheet" />
+		<!--[if lt IE 9]>-->
+		<script src="{{ static_url('bootstrap/js/html5.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/css3-mediaqueries.js')}}"></script>
+		<!--<![endif]-->
+		<!-- Add custom CSS here -->
+		<link href="{{ static_url('bootstrap/css/sb-admin.css')}}" rel="stylesheet">
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/icon/iconfont.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/toastr.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/main.css')}}" />
+		{% block style %}
+		{% end %}
+	</head>
+
+	<body>
+
+		{% block content %}
+		{% end %}
+		<script src="{{ static_url('bootstrap/js/jquery-1.10.2.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery.notify.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap-table.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap-table-zh-CN.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/toastr.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/treeview.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/crypto-js.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/mg.js')}}"></script>
+		{% block script %}
+		{% end %}
+	</body>
+
+</html>

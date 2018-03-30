@@ -1,0 +1,87 @@
+{% extends 'web_p/views/sys_config_base.html' %}
+{% block title %}
+<title>添加模板</title>
+{% end %}
+
+{% block content %}
+<div id="wrapper" class="hy-main-wrapper hy-full">
+
+	<div id="page-wrapper" class="ald hy-main-page-wrapper">
+		<div class="hy-height-auto hy-padding-15 hy-background-color-white hy-border-1">
+			<div class="form-inline" role="form">
+				<div class="form-group">
+					<label>菜单名称：</label>
+					<input id="m_id" name="m_id" type="text" style="display: none;" class="form-control w70" value="{{data.get('id')}}">
+					{% if data.get('name') %}
+					<input id="menu_name" name="menu_name" type="text" class="form-control w70" value="{{data.get('name')}}">
+					{% else %}
+					<input id="menu_name" name="menu_name" type="text" class="form-control w70" placeholder="菜单名称">
+					{% end %}
+				</div>
+			</div>
+			<div class="form-inline" role="form">
+				<div class="form-group">
+					<label>菜单链接：</label>
+					{% if data.get('link') %}
+					<input id="menu_link" name="menu_link" type="text" class="form-control w70" value="{{data.get('link')}}">
+					{% else %}
+					<input id="menu_link" name="menu_link" type="text" class="form-control w70" placeholder="菜单链接">
+					{% end %}
+				</div>
+			</div>
+			<div class="form-inline" role="form">
+				<div class="form-group">
+					<label>P_ID：</label>
+					{% if data.get('pid') %}
+					<input id="menu_p_id" name="menu_p_id" type="text" class="form-control w70" value="{{data.get('pid')}}">
+					{% else %}
+					<input id="menu_p_id" name="menu_p_id" type="text" class="form-control w70" placeholder="菜单的父级ID">
+					{% end %}
+				</div>
+			</div>
+			<div class="form-inline" role="form">
+				<div class="form-group">
+					<label>target：</label>
+					{% if data.get('target') %}
+					<input id="target" name="target" type="text" class="form-control w70" value="{{data.get('target')}}">
+					{% else %}
+					<input id="target" name="target" type="text" class="form-control w70" placeholder="跳转链接目标定位">
+					{% end %}
+				</div>
+			</div>
+			<div class="form-inline" role="form">
+				<div class="form-group">
+					<label>图标：</label>
+					{% if data.get('icon') %}
+					<input id="icon" name="icon" type="text" class="form-control w70" value="{{data.get('icon')}}">
+					{% else %}
+					<input id="icon" name="icon" type="text" class="form-control w70" placeholder="菜单栏显示的图标">
+					{% end %}
+				</div>
+			</div>
+			<div class="form-inline" role="form">
+				<div class="form-group">
+					<label>显示顺序：</label>
+					{% if data.get('priority') %}
+					<input id="priority" name="priority" type="text" class="form-control w70" value="{{data.get('priority')}}">
+					{% else %}
+					<input id="priority" name="priority" type="text" class="form-control w70" placeholder="菜单栏显示的图标">
+					{% end %}
+				</div>
+			</div>
+		</div>
+		<div class="hy-height-auto hy-magin-top-20 hy-padding-15 hy-background-color-white hy-border-1">
+			<div class="form-group">
+				<button type="button" id="btn_save" class="btn btn-primary">保存</button>
+			</div>
+			<div id="treeview-checkable"></div>
+		</div>
+	</div>
+</div>
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageAddSysMenu", "");
+</script>
+{% end %}

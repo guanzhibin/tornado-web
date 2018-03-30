@@ -1,0 +1,45 @@
+{% extends 'web_p/views/base4.html' %}
+{% block head %}
+<title>ltv价值</title>
+{% end %}
+{% block choice_days %}
+{% include 'web_p/views/choice_day.html' %}
+{% end %}
+{% block search %}
+<button class="btn btn-primary hy-magin-10" type="button" id="screen" style="width: 80px"></i>区服筛选</button>
+<button class="btn btn-primary hy-magin-10" type="button" id="screen2" style="width: 80px"></i>渠道筛选</button>
+{% end %}
+{% block download %}
+{% include 'web_p/views/download.html' %}
+{% end %}
+{% block modal %}
+<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div id="treeview-checkable"></div>
+			<button type="button" class="btn btn-default" id="confirm" style="margin-left: 20px;margin-bottom: 10px">
+				确定
+			</button>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="removeModal2" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel" style="height: 900px">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div id="treeview-checkable2"></div>
+			<button type="button" class="btn btn-default" id="confirm2" style="margin-left: 20px;margin-bottom: 10px">
+				确定
+			</button>
+		</div>
+	</div>
+</div>
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageLTVSearch","");
+	$(function () { 
+		$("[data-toggle='popover']").popover({html : true });
+	});
+</script>
+{% end %}

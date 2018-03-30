@@ -1,0 +1,100 @@
+{% extends 'web_p/views/base4.html' %}
+{% block head %}
+<title>{{title}}</title>
+{% end %}
+{% block style %}
+<style type="text/css">
+	#echartsPie {
+		/*display: none;*/
+		margin:10px 0px;
+		border:1px solid #DDD;
+	}
+	#echartsPie2 {
+		display: none;
+		margin:10px 0px;
+		border:1px solid #DDD;
+		position: relative;
+	}
+	#ll2 {
+		width: 100%;
+		height: 400px;
+		display: none;
+	}
+</style>
+{% end %}
+{% block choice_days %}
+{% include 'web_p/views/choice_day.html' %}
+{% end %}
+{% block chart_draw %}
+<div id="echartsPie" style="width:100%;height:400px"></div> 
+{% end %}
+{% block search %}
+<button class="btn btn-primary hy-magin-10" type="button" id="screen" style="width: 80px"></i>区服筛选</button>
+<button class="btn btn-primary hy-magin-10" type="button" id="screen2" style="width: 80px"></i>渠道筛选</button>
+{% end %}
+{% block download %}
+{% include 'web_p/views/download.html' %}
+{% end %}
+{% block modal %}
+<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div id="treeview-checkable"></div>
+			<button type="button" class="btn btn-default" id="confirm" style="margin-left: 20px;margin-bottom: 10px">
+				确定
+			</button>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="removeModal2" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel" style="height: 900px">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div id="treeview-checkable2"></div>
+			<button type="button" class="btn btn-default" id="confirm2" style="margin-left: 20px;margin-bottom: 10px">
+				确定
+			</button>
+		</div>
+	</div>
+</div>
+{% end %}
+
+
+{% block many_tales %}
+<div class="form-group" style="margin-top: 0px">
+	<div id="echartsPie3" style="width:100%;height:100%">
+		<div id="download2">
+			{% include 'web_p/views/download.html' %}
+		</div>
+		<div class="bottom col-xs-12" border="1" cellpadding="0" cellspacing="0" id="test">
+		<div class="form-group" style="font-size: 20px;font-weight: bold;">纹章星石数量</div>
+			<table id="table2">
+				
+			</table>
+		</div>
+	</div>
+</div>
+{% end %}
+{% block many_tales2 %}
+<div class="form-group"">
+	<div class="bottom col-xs-12" border="1" cellpadding="0" cellspacing="0" id="test">
+		<div id="ll2"></div>
+		<div id="download3" style="height: 50px">
+			{% include 'web_p/views/download.html' %}
+		</div>
+		<table id="table3">
+			
+		</table>
+	</div>
+</div>
+{% end %}
+
+{% block script %}
+<script src="{{ static_url('bootstrap/js/echarts.min.js')}}"></script> 
+<script>
+	var mg = new mg();
+	mg.RunPage("PageDeviceRecordSearch","");
+	$(function () { 
+		$("[data-toggle='popover']").popover({html : true });
+	});
+</script>
+{% end %}

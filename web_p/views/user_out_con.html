@@ -1,0 +1,40 @@
+{% extends 'web_p/views/data_base.html' %}
+{% block head %}
+<title>{{title}}</title>
+
+{% end %}
+{% block style%}
+{% end %}
+{% block form-inline %}
+<div class="form-group">
+	<!-- <label>时间排序:</label> -->
+	<select id="servers" class="form-control w70" >
+		<option value="">全服务器</option>
+		{% if server_list %}
+		{% for _server_data in server_list %}
+		<option value="{{_server_data.get('uid','')}}">{{_server_data.get('name')}}</option>
+		{% end %}
+		{% end %}
+	</select>
+	
+	<input id="playerId" placeholder="玩家ID用英文逗号分隔" type="text" class="form-control w70">
+
+</div>
+
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageuseroutSearch","");
+	$(function () { 
+		$("[data-toggle='popover']").popover({html : true });
+	});
+	function on(){
+		console.log($('#goods select option:selected'))
+		var vs = $('select option:selected').val();
+		console.log(vs)
+	}
+
+</script>
+
+{% end %}

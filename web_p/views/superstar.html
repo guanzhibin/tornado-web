@@ -1,0 +1,98 @@
+{% extends 'web_p/views/base5.html' %}
+{% block head %}
+<title>{{title}}</title>
+{% end %}
+{% block style %}
+<style type="text/css">
+
+	#ll2 {
+		width: 100%;
+		height: 400px;
+		/*display: none;*/
+	}
+/*	#table3 > tbody >tr{
+		background-color : #FF9900;
+	}*/
+</style>
+{% end %}
+{% block form-inline %}
+<div class="form-group">
+	<div class='col-xs-6' style="width: 30%;">
+		<input id="end_time" value="" type="text" class="form-control w70 datatime" placeholder="截止时间">
+	</div>
+</div>
+<div class="form-group" >
+
+	<!-- <label>时间排序:</label> -->
+	<select id="servers" class="form-control w70" >
+
+		{% if server_list %}
+		<option value="">全服务器</option>
+		{% for _server_data in server_list %}
+		<option value="{{_server_data.get('uid','')}}">{{_server_data.get('name')}}</option>
+		{% end %}
+		{% end %}
+	</select>
+
+
+</div>
+
+{% end %}
+{% block many_tales %}
+<div class="form-group" style="margin-top: 0px">
+
+
+	<!-- <button class="btn btn-primary hy-magin-10" type="button" id="m_data" style="width: 80px"></i>查询</button> -->
+	<div class="bottom col-xs-12" border="1" cellpadding="0" cellspacing="0" id="test">
+	<div class="form-group" style="font-size: 20px;font-weight: bold;">区服超觉醒玩家排行</div>
+	
+		<table id="table2">
+			
+		</table>
+	</div>
+</div>
+{% end %}
+{% block many_tales2 %}
+
+<div class="form-group"">
+<!-- 	<div class='col-xs-6 hy-padding-0' style="width: 20%">
+	<select id="servers" class="form-control w70" >
+		{% if server_list %}
+		<option value="">全服务器</option>
+		{% for _server_data in server_list %}
+		<option value="{{_server_data.get('uid','')}}">{{_server_data.get('name')}}</option>
+		{% end %}
+		{% end %}
+	</select>
+	</div> -->
+	<div class='col-xs-6 hy-padding-0' style="width: 20%;float: left;">
+		<input id="start_time" value="{{handler.start_now}}" type="text" class="form-control w70 datatime">
+	</div>
+
+	<button class="btn btn-primary hy-magin-10" type="button" id="m_data" style="width: 80px"></i>月数据</button>
+	<button class="btn btn-primary hy-magin-10" type="button" id="w_data" style="width: 80px"></i>周数据</button>
+	<button class="btn btn-primary hy-magin-10" type="button" id="d_data" style="width: 80px"></i>日数据</button>
+	<div class="bottom col-xs-12" border="1" cellpadding="0" cellspacing="0" id="test">
+		<div class="form-group" style="font-size: 20px;font-weight: bold;">区服超觉醒数据</div>
+		<table id="table3">
+			
+		</table>
+		<div id="echartsPie" style="width:100%;height:400px"></div> 
+	</div>
+</div>
+{% end %}
+
+{% block script %}
+<script src="{{ static_url('bootstrap/js/echarts.min.js')}}"></script> 
+<script>
+	var mg = new mg();
+	mg.RunPage("PagesuperstarSearch","");
+	$(function () { 
+		$("[data-toggle='popover']").popover({html : true });
+	});
+
+</script>
+<script type="text/javascript">
+	
+</script>
+{% end %}

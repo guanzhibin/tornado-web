@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<title>{{title}}</title>
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/jquery.multiselect.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/style.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/prettify.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/jquery-ui.css')}}" />
+		<!-- Bootstrap core CSS -->
+		<link href="{{ static_url('bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+		<link href="{{ static_url('bootstrap/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet" />
+		<link href="{{ static_url('bootstrap/css/bootstrap-table.css')}}" rel="stylesheet" />
+		<!--[if lt IE 9]>-->
+		<script src="{{ static_url('bootstrap/js/html5.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/css3-mediaqueries.js')}}"></script>
+		<!--<![endif]-->
+		<!-- Add custom CSS here -->
+		<link href="{{ static_url('bootstrap/css/sb-admin.css')}}" rel="stylesheet">
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/icon/iconfont.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/toastr.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/main.css')}}" />
+
+		<style>
+			.ui-multiselect {
+				margin: 10px;
+			}
+			.bootstrap-table td{
+				vertical-align: baseline !important;
+			}
+			.divcss5-b{ width:250px; height:200px; float:left;} 
+			.divcss5-b{
+				overflow: auto;
+				overflow-y: auto;
+			}
+			#is_show{
+				border:1px solid #DDD;
+				margin-left: 50px;
+				background-color:#d9e2ea;
+				width: 15%;
+			}
+			#is_show div{
+				height: 50px;
+				text-align:center;
+				margin:30px 0 30px 0;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="wrapper" class="hy-main-wrapper hy-full">
+
+			<div id="page-wrapper" class="hy-main-page-wrapper">
+				<div class="main-content event aip">
+					<div class="top-content hy-padding-15">
+						<div class="form-inline" role="form" id="yyyy">
+							<div class="form-group">
+								<div class='col-xs-6 hy-padding-0'>
+									<label>开始时间: </label>
+									<input id="start_time" placeholder="开始时间" type="text" class="form-control w70 datatime">
+								</div>
+
+								<div class='col-xs-6 hy-padding-0'>
+									<label>结束时间: </label>
+									<input id="end_time" placeholder="结束时间" type="text" class="form-control w70 datatime">
+								</div>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-default btn-control btn-time" value="0" id="nowDay">今天</button>
+								<button class="btn btn-default btn-control btn-time" value="-1" id="yesterday">昨天</button>
+								<button class="btn btn-default btn-control btn-time" value="-6" id="a_week">近7天</button>
+								<button class="btn btn-default btn-control btn-time" value="-14" id="half_month">近15天</button>
+								<button class="btn btn-default btn-control btn-time" value="-29" id="one_month">近30天</button>
+								<button class="btn btn-default btn-control btn-time" value="-59" id="two_month">近60天</button>
+								<button class="btn btn-default btn-control btn-time" value="-89" id="three_month">近90天</button>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-primary hy-magin-10" type="button" id="screen"></i>筛选</button>
+							</div>
+						</div>
+
+					</div>
+					<div class="form-group" style="float: right;">
+						<button type="button" class="btn btn-default" title="{{title}}"  
+								data-container="body" data-toggle="popover" data-placement="left" 
+								data-content="<div class='divcss5-b'>
+								累计新增设备:所选日期内，新增加的去重设备数<br>
+								累计新增账号:所选日期内，新增加的注册账号数<br>
+								平均活跃人数:所选日期内，登录过游戏的去重玩家数<br>
+								付费人数:所选日期内，付费的玩家数<br>
+								付费金额:所选日期内，玩家付费的金额<br></div>">？
+						</button>
+					</div>
+					<div class="form-inline" role="form" id="add_overview">
+						
+					</div>
+
+				</div>
+
+
+
+				<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div id="treeview-checkable"></div>
+						<button type="button" class="btn btn-default" id="confirm" style="margin-left: 20px;margin-bottom: 10px">
+							确定
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!-- JavaScript -->
+		<script src="{{ static_url('bootstrap/js/jquery-1.10.2.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery.notify.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/moment-with-locales.min.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap-datetimepicker.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap-table.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap-table-zh-CN.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery-ui.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery.multiselect.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery.multiselect.zh-cn.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/prettify.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/toastr.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/treeview.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/crypto-js.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/mg.js')}}"></script>
+		<script>
+			var mg = new mg();
+			mg.RunPage("PageOverviewSearch","");
+			$(function () { 
+				$("[data-toggle='popover']").popover({html : true });
+			});
+
+		</script>
+	</body>
+
+</html>
+
+

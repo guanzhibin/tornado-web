@@ -1,0 +1,58 @@
+{% extends 'web_p/views/base3.html' %}
+{% block head %}
+<title>{{title}}</title>
+{% end %}
+{% block form-inline %}
+<div class="form-group">
+	<!-- <label>时间排序:</label> -->
+	<select id="servers" class="form-control w70" >
+		<option value="">全服务器</option>
+		{% if server_list %}
+		{% for _server_data in server_list %}
+		<option value="{{_server_data.get('uid','')}}">{{_server_data.get('name')}}</option>
+		{% end %}
+		{% end %}
+	</select>
+	
+	<input id="GuildId" placeholder="冒险团ID" type="text" class="form-control w70">
+	<input id="GuildName" placeholder="冒险团名字" type="text" class="form-control w70">
+</div>
+<div class="form-group">
+	<button id="search" type="button" class="btn btn-primary">查询</button>
+	<button class="btn btn-primary hy-magin-10" type="button" id="refresh"><i class="iconfont icon-refresh"></i>刷新</button>
+	<button class="btn btn-primary hy-magin-10" type="button" id="screen" style="width: 80px"></i>数据筛选</button>
+	<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div id="treeview-checkable"></div>
+				<button type="button" class="btn btn-default" id="confirm" style="margin-left: 20px;margin-bottom: 10px">
+					确定
+				</button>
+			</div>
+		</div>
+	</div>
+	<button class="btn btn-primary hy-magin-10" type="button" id="screen2" style="width: 80px"></i>途径筛选</button>
+	<div class="modal fade" id="removeModal2" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div id="treeview-checkable2"></div>
+				<button type="button" class="btn btn-default" id="confirm2" style="margin-left: 20px;margin-bottom: 10px">
+					确定
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="manary_modal">
+</div>
+
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageguidoutputconSearch","");
+	$(function () { 
+		$("[data-toggle='popover']").popover({html : true });
+	});
+</script>
+{% end %}

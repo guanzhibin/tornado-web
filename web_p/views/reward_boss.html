@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">排行榜</h4>
+</div>
+<div class="modal-body"  style="height: 800px;overflow-y:scroll">
+    <table class="table table-bordered table-thin">
+        <tr>
+            <td width="8%">名次</td>
+            <td width="12%">玩家ID</td>
+            <td width="20%">总伤害量</td>
+            <td width="15%">奖励是否发放</td>
+            <td width="25%">奖励发放时间</td>
+            <td width="20%">奖励内容(掉落ID)</td>
+
+        </tr>           
+        {% if ranking %}
+            {% for resp in ranking %}
+                <tr>
+                    <td width="8%" >{{resp.get('sort')}}</td>
+                    <td width="12%">{{resp.get('player_id')}}</td>
+                    <td width="20%">{{resp.get('total_damage')}}</td>
+                    <td width="15%" style={{resp.get('color')}}>{{ '成功' if resp.get('bonus_grant')==1 else "失败"}}</td>
+                    <td width="25%">{{resp.get('bonus_grant_time_str')}}</td>
+                    <td width="20%">{{resp.get('bonus_id')}}</td>
+                </tr>
+            {% end %}
+        {% end %}
+    </table>
+</div>
+<div class="modal-footer">
+    <center><input type="button" class="btn btn-default" data-dismiss="modal" value="关闭"></center>
+
+</div>

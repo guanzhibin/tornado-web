@@ -1,0 +1,30 @@
+{% extends 'web_p/views/sys_config_base.html' %}
+{% block title %}
+<title>修改用户角色权限</title>
+{% end %}
+{% block content %}
+<div id="wrapper" class="hy-main-wrapper hy-full">
+	<div id="page-wrapper" class="ald hy-main-page-wrapper">
+		<div class="hy-height-auto hy-padding-15 hy-background-color-white hy-border-1">
+			<div class="form-inline" role="form">
+				<div class="form-group">
+					<label>用户名称：</label>
+					<input id="login_name" name="login_name" type="text" class="form-control w70" placeholder="用户组">
+				</div>
+			</div>
+		</div>
+		<div class="hy-height-auto hy-magin-top-20 hy-padding-15 hy-background-color-white hy-border-1">
+			<div class="form-group">
+				<button type="button" id="btn_save" class="btn btn-primary">保存</button>
+			</div>
+			<div id="treeview-checkable"></div>
+		</div>
+	</div>
+</div>
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageUpdateUser", "");
+</script>
+{% end %}

@@ -1,0 +1,51 @@
+{% extends 'web_p/views/base3.html' %}
+{% block head %}
+<title>{{title}}</title>
+{% end %}
+{% block form-inline %}
+<div class="form-group">
+	<!-- <label>时间排序:</label> -->
+	<select id="servers" class="form-control w70" >
+		<option value="">全服务器</option>
+		{% if server_list %}
+		{% for _server_data in server_list %}
+		<option value="{{_server_data.get('uid','')}}">{{_server_data.get('name')}}</option>
+		{% end %}
+		{% end %}
+	</select>
+	
+	<input id="GuildId" placeholder="冒险团ID" type="text" class="form-control w70">
+	<input id="GuildName" placeholder="冒险团名字" type="text" class="form-control w70">
+<!-- 	<select id="goods" class="form-control w70">
+		<option value="0">请选择</option>
+		<option value="1">体力</option>
+		<option value="2">货币</option>
+		<option value="3">钻石</option>
+		<option value="4">装备</option>
+		<option value="5">玩家经验</option>
+		<option value="6">角色</option>
+		<option value="7">物品</option>
+
+	</select>
+	<select id="goods2" class="form-control w70">
+	</select> -->
+</div>
+<div class="form-group">
+	<button id="search" type="button" class="btn btn-primary">查询</button>
+	<button class="btn btn-primary hy-magin-10" type="button" id="refresh"><i class="iconfont icon-refresh"></i>刷新</button>
+	<!-- <button class="btn btn-primary hy-magin-10" type="button" id="screen"></i>筛选</button> -->
+</div>
+
+<div id="manary_modal">
+</div>
+
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageguidopmsgSearch","");
+	$(function () { 
+		$("[data-toggle='popover']").popover({html : true });
+	});
+</script>
+{% end %}

@@ -1,0 +1,46 @@
+{% extends 'web_p/views/sys_config_base.html' %}
+{% block title %}
+<title>菜单管理</title>
+{% end %}
+{% block content %}
+<div id="wrapper" class="hy-main-wrapper hy-full">
+	<div id="page-wrapper" class="sl hy-main-page-wrapper">
+		<div class="content">
+			<div id="toolbar">
+				<div class="form-inline" role="form">
+					<div class="form-group">
+						<a href="/config/addmenu" id="add" type="button" class="btn btn-primary">添加</a>
+						<button class="btn btn-primary hy-magin-10" type="button" id="refresh"><i class="iconfont icon-refresh"></i>刷新</button>
+					</div>
+				</div>
+			</div>
+			<table id="table">
+
+			</table>
+		</div>
+	</div>
+	<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="removeModalLabel">删除菜单</h4>
+				</div>
+				<div class="modal-body">
+					<label>确定删除菜单  <span id="group_name" class="text-danger"></span>  吗?</label>
+					<div class="form-group text-right hy-magin-top-20">
+						<button type="button" id="btn_remove" class="btn btn-danger modal-btn">删除</button>
+						<button type="button" class="btn btn-default modal-btn" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageMenuList", "");
+</script>
+{% end %}

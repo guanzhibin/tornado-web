@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<title>诺文尼亚幻想-研发</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="{{ static_url('bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+		<script src="{{ static_url('bootstrap/js/piwik.js') }}"></script>
+		<!--[if lt IE 9]>-->
+		<script src="{{ static_url('bootstrap/js/html5.js') }}"></script>
+		<script src="{{ static_url('bootstrap/js/css3-mediaqueries.js') }}"></script>
+		<!--<![endif]-->
+		<!-- Add custom CSS here -->
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/icon/iconfont.css') }}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/toastr.css') }}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/main.css')}}" />
+	</head>
+
+	<body>
+		</div>
+		<div class="content hy-wrapper" id="wrapper">
+			<div class="header hy-form-header">
+				<nav id="navbar-example" class="navbar navbar-default navbar-static header-menu hy-form-navbar" role="navigation" style="width:180px;">
+					<div class="navbar-header hy-form-navbar-header pull-left">
+						<a class=" pull-left" href="index.html"></a>
+						<a class="pull-left hy-form-header-text">诺文尼亚幻想-运营</a>
+					</div>
+				</nav>
+			</div>
+			<div class="main-content">
+				<div class="panel panel-default hy-form-body" id="form-signin">
+					<div class="form-signin-heading hy-form-body-header">
+						登录平台
+					</div>
+					<div class="panel-body opa-contant">
+						<form class="form-signin hy-form" id="login_form">
+							<div id="phone_input" class="input-div hy-form-input-div">
+								<div class="input-group hy-form-input-group">
+									<span class="input-group-addon hy-form-input-group-addon"><span class="iconfont icon-user"></span></span>
+									<input type="text" id="username" name="username" class="form-control hy-form-input" placeholder="登录账号">
+								</div>
+
+							</div>
+							<div id="email_input" class="input-div hy-form-input-div">
+								<div class="input-group hy-form-input-group">
+									<span class="input-group-addon hy-form-input-group-addon"><span class="iconfont icon-password"></span></span>
+									<input type="password" name="password" id="password" class="form-control hy-form-input" placeholder="密码">
+								</div>
+							</div>
+							<div class="hy-btn-div">
+
+								<button class="btn btn-lg btn-primary btn-block hy-btn-primary" type="submit" id="login">
+					登录
+				</button>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="{{ static_url('bootstrap/js/jquery-1.10.2.js') }}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery.validate.js') }}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap.js') }}"></script>
+		<script src="{{ static_url('bootstrap/js/toastr.js') }}"></script>
+		<script src="{{ static_url('bootstrap/js/crypto-js.js') }}"></script>
+		<script src="{{ static_url('bootstrap/js/mg.js') }}"></script>
+		<script>
+			var mg = new mg();
+			mg.RunPage("PageLogin", "");
+		</script>
+	</body>
+
+</html>

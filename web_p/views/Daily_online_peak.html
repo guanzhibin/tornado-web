@@ -1,0 +1,35 @@
+{% extends 'web_p/views/data_base.html' %}
+{% block head %}
+<title>{{title}}</title>
+{% end %}
+{% block style %}
+<style type="text/css">
+	#echartsPie {
+		display: none;
+		margin:10px 0px;
+		border:1px solid #DDD;
+	}
+
+</style>
+{% end %}
+{% block choice_days %}
+{% include 'web_p/views/choice_day.html' %}
+{% end %}
+{% block download %}
+{% include 'web_p/views/download.html' %}
+{% end %}
+{% block chart_draw %}
+<!-- <div class="form-inline" role="form"> -->
+<div id="echartsPie" style="width:95%;height:400px"></div> 
+<!-- </div> -->
+{% end %}
+{% block script %}
+<script src="{{ static_url('bootstrap/js/echarts.min.js')}}"></script> 
+<script>
+	var mg = new mg();
+	mg.RunPage("PageOnlinePeakSearch","");
+	$(function () { 
+		$("[data-toggle='popover']").popover({html : true });
+	});
+</script>
+{% end %}

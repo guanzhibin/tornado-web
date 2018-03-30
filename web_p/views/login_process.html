@@ -1,0 +1,24 @@
+{% extends 'web_p/views/data_base.html' %}
+{% block head %}
+<title>{{title}}</title>
+{% end %}
+{% block form-inline %}
+<div class="form-group">
+	<select id="activation_type" class="form-control w70" >
+		<option value="1">所有激活</option>
+		<option value="2">新增激活</option>
+	</select>
+</div>
+{% end %}
+{% block choice_days %}
+{% include 'web_p/views/choice_day.html' %}
+{% end %}
+{% block download %}
+{% include 'web_p/views/download.html' %}
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageLoginProcessSearch","");
+</script>
+{% end %}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		{% block head %}
+		{% end %}
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/jquery.multiselect.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/style.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/prettify.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/jquery-ui.css')}}" />
+		<!-- Bootstrap core CSS -->
+		<link href="{{ static_url('bootstrap/css/bootstrap.css')}}" rel="stylesheet">
+		<link href="{{ static_url('bootstrap/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet" />
+		<link href="{{ static_url('bootstrap/css/bootstrap-table.css')}}" rel="stylesheet" />
+		<!--[if lt IE 9]>-->
+		<script src="{{ static_url('bootstrap/js/html5.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/css3-mediaqueries.js')}}"></script>
+		<!--<![endif]-->
+		<!-- Add custom CSS here -->
+		<link href="{{ static_url('bootstrap/css/sb-admin.css')}}" rel="stylesheet">
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/icon/iconfont.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/toastr.css')}}" />
+		<link rel="stylesheet" href="{{ static_url('bootstrap/css/main.css')}}" />
+		{% block style %}
+		{% end %}
+		<style>
+			.ui-multiselect {
+				margin: 10px;
+			}
+			.bootstrap-table td{
+				vertical-align: baseline !important;
+			}
+			.divcss5-b{ width:250px; height:400px; float:left;} 
+			.divcss5-b{
+				overflow: auto;
+				overflow-y: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="wrapper" class="hy-main-wrapper hy-full">
+
+			<div id="page-wrapper" class="hy-main-page-wrapper">
+				<div class="main-content event aip">
+					<div class="top-content hy-padding-15">
+						<div class="form-inline" role="form">
+							{% block form-inline %}
+							{% end %}
+							<div class="form-group">
+								<div class='col-xs-6 hy-padding-0'>
+									<input id="start_time" value="{{handler.start_now}}" type="text" class="form-control w70 datatime">
+								</div>
+							</div>
+							{% block choice_days %}
+							{% end %}
+							<div class="form-group">
+								<button id="search" type="button" class="btn btn-primary">查询</button>
+								<button class="btn btn-primary hy-magin-10" type="button" id="refresh"><i class="iconfont icon-refresh"></i>刷新</button>
+								<button class="btn btn-primary hy-magin-10" type="button" id="screen"></i>筛选</button>
+							</div>
+						</div>
+
+					</div>
+
+					{% block download %}
+					{% end %}
+					{% block chart_draw %}
+					{% end %}
+					<div class="bottom col-xs-12" border="1" cellpadding="0" cellspacing="0">
+						<table id="table">
+							
+						</table>
+					</div>
+
+				</div>
+				<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div id="treeview-checkable"></div>
+						<button type="button" class="btn btn-default" id="confirm" style="margin-left: 20px;margin-bottom: 10px">
+							确定
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<!-- JavaScript -->
+		<script src="{{ static_url('bootstrap/js/jquery-1.10.2.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery.notify.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/moment-with-locales.min.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap-datetimepicker.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap-table.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/bootstrap-table-zh-CN.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery-ui.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery.multiselect.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/jquery.multiselect.zh-cn.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/prettify.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/toastr.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/treeview.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/crypto-js.js')}}"></script>
+		<script src="{{ static_url('bootstrap/js/mg.js')}}"></script>
+		{% block script %}
+		{% end %}
+	</body>
+
+</html>

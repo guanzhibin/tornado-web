@@ -1,0 +1,21 @@
+{% extends 'web_p/views/data_base.html' %}
+{% block head %}
+<title>{{title}}</title>
+{% end %}
+{% block form-inline %}
+{% end %}
+{% block choice_days %}
+{% include 'web_p/views/choice_day.html' %}
+{% end %}
+{% block download %}
+{% include 'web_p/views/download.html' %}
+{% end %}
+{% block script %}
+<script>
+	var mg = new mg();
+	mg.RunPage("PageChDataSearch","");
+	$(function () { 
+		$("[data-toggle='popover']").popover({html : true });
+	});
+</script>
+{% end %}
