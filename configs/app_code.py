@@ -16,4 +16,4 @@ UPPER_ERR = '上线不存在'
 
 GOODS_ERR = '商品已存在'
 
-CHENNEL_ERR = '渠道名重复'
+CHENNEL_ERR = ''
